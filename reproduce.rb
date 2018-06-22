@@ -17,10 +17,10 @@ begin
   puts 'Upload file'
   driver.find_element(xpath: "//*[@id='fileToUpload']").send_keys 'test.png'
   driver.save_screenshot('success.png')
+  puts 'File upload successfully. Close browser'
+  driver.quit
 rescue => e
   driver.save_screenshot('error.png')
   driver.quit
   raise e
-ensure
-  driver.quit
 end
