@@ -6,16 +6,29 @@ https://github.com/SeleniumHQ/selenium/issues/6064
 
 * ruby 2.3+
 * bundler
-* Selenium grid with Firefox 49+
+* docker
+* docker-compose
+
 
 ## Reproduce
 
+With firefox:
+
 ```
+docker-compose up -d
 bundle install
-bundle exec ruby reproduce.rb <http://remote-hub-url>
+bundle exec ruby reproduce.rb firefox
 ```
 
-## Actual result
+With chrome: 
+
+```
+docker-compose up -d
+bundle install
+bundle exec ruby reproduce.rb chrome
+```
+
+## Actual result with Firefox
 
 File does not upload. Webdriver get error:
 

@@ -1,10 +1,10 @@
 require 'selenium-webdriver'
 
-puts 'Create driver'
+puts "Create driver for #{ARGV[0]}"
 
 driver = Selenium::WebDriver.for :remote,
-                                  url: "#{ARGV[0]}",
-                                  desired_capabilities: :firefox #chrome
+                                  url: 'http://127.0.0.1:4444/wd/hub',
+                                  desired_capabilities: ARGV[0].to_sym
 
 driver.file_detector = lambda do |args|
   str = args.first.to_s
@@ -22,5 +22,5 @@ rescue => e
   driver.quit
   raise e
 ensure
-
+  driver.quit
 end
